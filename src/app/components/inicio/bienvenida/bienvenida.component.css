@@ -1,0 +1,11 @@
+p{
+    font-family: 'Rowdies', cursive;
+    font-size: 2.3em;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
