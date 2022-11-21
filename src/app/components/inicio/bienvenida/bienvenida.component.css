@@ -9,3 +9,14 @@ p{
     align-items: center;
     min-height: 100vh;
 }
+
+hr {
+    border-width: 3px;
+    max-width: 65px;
+    border-color: #f05f44;
+}
+
+.btn-xl{
+    background-color: #F05F44;
+    border-color: #F05F44;
+}
