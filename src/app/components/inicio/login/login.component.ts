@@ -10,7 +10,7 @@ import {Usuario} from '../../../models/usuario'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  loading = false;
   login!: FormGroup;
 
   constructor(private fb: FormBuilder, private toastr: ToastrService, private router: Router) { 
@@ -30,11 +30,17 @@ export class LoginComponent implements OnInit {
       password : this.login.value.password
     }
 
-    if (usuario.nombreUsuario === "mlatorre" && usuario.password === 'admin'){
-      this.router.navigate(['/dashboard'])
-    }else{
-      this.toastr.error('Usuario o contraseña invalidos', 'Error')
-    }
+    this.loading = true;
+
+    setTimeout(() => {
+      if (usuario.nombreUsuario === "mlatorre" && usuario.password === 'admin'){
+        this.router.navigate(['/dashboard'])
+      }else{
+        this.toastr.error('Usuario o contraseña invalidos', 'Error')
+      }
+      this.loading = false;
+    }, 3000);
+
   }
 
 }
