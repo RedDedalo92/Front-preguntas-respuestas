@@ -11,6 +11,7 @@ export class LoginService {
 
   myAppUrl: string;
   myApiUrl: string;
+  
 
   constructor(private http: HttpClient) { 
     this.myAppUrl = environment.endpoint;
@@ -19,5 +20,19 @@ export class LoginService {
 
   login(usuario: Usuario): Observable<any>{
     return this.http.post(this.myAppUrl + this.myApiUrl, usuario);
+  }
+
+  setLocalStorage(data: any): void{
+    localStorage.setItem('nombreUsuario', data);
+  }
+
+  getNombreUsuario(): string | null{
+    let nombreUsuario!: string | null;
+    nombreUsuario = localStorage.getItem('nombreUsuario');
+    return nombreUsuario;
+  }
+
+  removeLocalStorage(): void{
+    localStorage.removeItem('nombreUsuario');
   }
 }

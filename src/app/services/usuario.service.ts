@@ -17,8 +17,12 @@ export class UsuarioService {
     this.myApiUrl = '/api/Usuario';
   }
 
-  //http://localhost:5064/api/Usuario
+  //http://localhost:5064/api/Usuario -- POST
   saveUser(usuario : Usuario): Observable<any>{
     return this.http.post(this.myAppUrl + this.myApiUrl, usuario)
+  }
+
+  changePassword(changePassword:any): Observable<any>{
+    return this.http.put(this.myAppUrl + this.myApiUrl+ '/CambiarPassword', changePassword)
   }
 }
